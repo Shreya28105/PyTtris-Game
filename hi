@@ -1,35 +1,3 @@
-Awesome — here’s a single ready-to-run Python file that merges the controller support and smooth joystick behavior from your earlier versions into the pastel/galaxy-themed build you pasted. It includes:
-
-full joystick (and keyboard) controls with axis threshold + movement cooldown
-
-pastel tetrominoes, ghost blocks, animated starfield, and particle explosions
-
-difficulty stages that change fall speed and preview count (Easy → Super Hard)
-
-animated glowing preview boxes and sidebar UI (score, lines, stage)
-
-sound manager with graceful fallbacks if assets are missing
-
-restart via keyboard R or controller Start button (usually button 7)
-
-comments for where to put assets and how to tweak thresholds
-
-
-Drop this into a file (e.g. galaxy_tetris_controller.py) and run. Put your sound/image assets in the same folder or adjust the paths in SoundManager / constants.
-
-#!/usr/bin/env python3
-"""
-Galaxy Tetris — merged:
-- Controller support (joystick axis, buttons, D-pad, Start restart)
-- Pastel palette, ghost blocks, starfield, particle explosions
-- Difficulty stages that change fall speed & preview count
-- Animated next-piece previews & UI
-- Sound manager with robust fallbacks
-
-Files expected (optional):
-- clear.mp3, explosion.mp3, gameover.mp3, bgsound.mp3  (or change names in SoundManager)
-Place them in same folder or assets/ directory.
-"""
 
 import os
 import sys
@@ -826,32 +794,3 @@ class TetrisGameMerged:
 if __name__ == "__main__":
     game = TetrisGameMerged()
     game.run()
-
-
----
-
-Quick notes & tweaks
-
-Controller: axis threshold and cooldown values are AXIS_THRESHOLD = 0.3 and MOVEMENT_COOLDOWN_MS = 130. Tweak them if your controller is too sensitive.
-
-Preview count, stage speeds, and pastel palette follow the constants near the top. Change STAGE_SPEEDS, PREVIEW_COUNTS, or VIBRANT_PASTELS to adjust difficulty/looks.
-
-Sound: SoundManager looks in assets/, the script directory, and cwd for your mp3 files. If they are missing, the game still runs without audio.
-
-Ghost block: implemented and drawn before the current piece (semi-outline).
-
-Particles: small exploded particles spawn on line clear and on lock; they fade out.
-
-Starfield: shooting stars spawn occasionally for the galaxy vibe.
-
-
-
----
-
-Want me to:
-
-add an optional config block to let players remap controller buttons at runtime, or
-
-bundle a tiny asset pack (one free galaxy image + tiny sound effects) into a downloadable zip?
-
-
